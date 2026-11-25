@@ -1,136 +1,35 @@
-# 🌦️ Weather App
+# Weather App
 
-A modern and responsive Weather Forecast Web Application built using Python Flask, HTML, and CSS. This application uses the OpenWeatherMap API to fetch and display real-time weather information for different cities around the world.
+A simple Flask weather application that fetches current weather details from OpenWeatherMap.
 
-## ✨ Features
+## Setup
 
-- 🌍 Search weather information by city name.
-- 🌡️ Display real-time temperature in Celsius.
-- 💧 Show humidity details.
-- ☁️ Display current weather conditions.
-- 🎨 Modern and professional user interface.
-- 📱 Responsive design for different screen sizes.
-- 🔐 Secure API key management using environment variables.
-- ⚡ Real-time weather data through OpenWeatherMap API.
+1. Install Python.
+2. Open a terminal in this project folder.
+3. Create and activate a virtual environment (optional but recommended).
+4. Install dependencies:
 
-## 🛠️ Technologies Used
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- **Frontend:** HTML5, CSS3
-- **Backend:** Python, Flask
-- **API:** OpenWeatherMap API
-- **Environment Management:** Python Dotenv
-- **HTTP Requests:** Requests Library
+5. Open the `.env` file and replace `PASTE_YOUR_NEW_API_KEY_HERE` with your OpenWeatherMap API key:
 
-## 📂 Project Structure
+   ```env
+   OPENWEATHER_API_KEY=your_actual_api_key
+   ```
 
-```text
-Weather-App/
-│
-├── app.py
-├── .env
-├── .env.example
-├── .gitignore
-├── requirements.txt
-│
-├── static/
-│   └── style.css
-│
-└── templates/
-    └── index.html
-```
+6. Run the application:
 
-## ⚙️ Installation and Setup
+   ```bash
+   python app.py
+   ```
 
-### 1. Clone the Repository
+7. Open the local URL shown in the terminal (usually http://127.0.0.1:5000).
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
+## GitHub security
 
-### 2. Navigate to the Project Folder
-
-```bash
-cd Weather-App
-```
-
-### 3. Create a Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### 4. Activate Virtual Environment
-
-**Windows:**
-
-```bash
-venv\Scripts\activate
-```
-
-### 5. Install Required Packages
-
-```bash
-pip install -r requirements.txt
-```
-
-### 6. Configure API Key
-
-Create a `.env` file in the project root directory.
-
-Add your OpenWeatherMap API key:
-
-```env
-OPENWEATHER_API_KEY=your_api_key_here
-```
-
-Get your API key from:
-
-https://openweathermap.org/api
-
-### 7. Run the Application
-
-```bash
-python app.py
-```
-
-### 8. Open in Browser
-
-```text
-http://127.0.0.1:5000
-```
-
-## 🔐 API Key Security
-
-- API keys are stored in the `.env` file.
-- Python Dotenv loads environment variables securely.
-- The `.gitignore` file prevents the `.env` file from being uploaded to GitHub.
-- The `.env.example` file provides a sample configuration.
-
-**Important:** Never upload your actual API key to a public GitHub repository.
-
-## 🌐 API Integration
-
-This project uses the OpenWeatherMap Current Weather API to retrieve:
-
-- City Name
-- Temperature
-- Humidity
-- Weather Description
-
-## 🚀 Future Enhancements
-
-- Weather icons based on weather conditions.
-- Five-day weather forecast.
-- Current location weather detection.
-- Wind speed and pressure information.
-- Search history.
-
-## 👩‍💻 Author
-
-**Your Name**
-
-GitHub: YOUR_GITHUB_PROFILE_URL
-
-## 📄 License
-
-This project is created for educational and learning purposes.
+- `.env` contains your private API key and is excluded by `.gitignore`.
+- Commit `.env.example` so others know which environment variable to configure.
+- Never upload your real `.env` file or share your API key publicly.
+- If an API key was already committed or exposed, revoke/regenerate it in your OpenWeatherMap account. Removing it from the latest code does not make an exposed key private again.

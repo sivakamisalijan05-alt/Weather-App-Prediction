@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App | Live Weather</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+
+    <main class="weather-container">
+
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">☀</span>
+                <span>Weather<span class="logo-highlight">ly</span></span>
+            </div>
+
+            <span class="live-badge">
+                <span class="live-dot"></span>
+                LIVE WEATHER
+            </span>
+        </header>
+
+        <section class="hero">
+            <p class="subtitle">WEATHER FORECAST</p>
+
+            <h1>Discover the weather<br>
+                <span>around you.</span>
+            </h1>
+
+            <p class="description">
+                Get real-time weather updates for any city
+                around the world.
+            </p>
+        </section>
+
+        <section class="search-section">
+
+            <form method="POST" class="search-form">
+
+                <div class="input-wrapper">
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        name="city"
+                        placeholder="Enter city name..."
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+
+                <button type="submit">
+                    Search Weather
+                    <span>→</span>
+                </button>
+
+            </form>
+
+        </section>
+
+        {% if error %}
+            <div class="error-message">
+                <span>⚠</span>
+                {{ error }}
+            </div>
+        {% endif %}
+
+        {% if weather %}
+
+        <section class="weather-card">
+
+            <div class="weather-top">
+                <div>
+                    <p class="weather-label">CURRENT WEATHER</p>
+                    <h2>{{ weather.city }}</h2>
+                </div>
+
+                <div class="weather-symbol">🌤️</div>
+            </div>
+
+            <div class="temperature">
+                {{ weather.temperature }}<span>°C</span>
+            </div>
+
+            <p class="weather-description">
+                {{ weather.description | title }}
+            </p>
+
+            <div class="weather-divider"></div>
+
+            <div class="weather-details">
+
+                <div class="detail-item">
+                    <span class="detail-icon">💧</span>
+                    <div>
+                        <p>Humidity</p>
+                        <h3>{{ weather.humidity }}%</h3>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-icon">🌡️</span>
+                    <div>
+                        <p>Temperature</p>
+                        <h3>{{ weather.temperature }}°C</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        {% endif %}
+
+        <footer>
+            <p>Powered by OpenWeatherMap</p>
+            <p>© 2026 Weatherly. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
